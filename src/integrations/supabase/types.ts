@@ -14,7 +14,278 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      flashcards: {
+        Row: {
+          back: string
+          created_at: string
+          difficulty: string | null
+          front: string
+          id: string
+          subject: string | null
+          user_id: string
+        }
+        Insert: {
+          back: string
+          created_at?: string
+          difficulty?: string | null
+          front: string
+          id?: string
+          subject?: string | null
+          user_id: string
+        }
+        Update: {
+          back?: string
+          created_at?: string
+          difficulty?: string | null
+          front?: string
+          id?: string
+          subject?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      focus_sessions: {
+        Row: {
+          completed_at: string
+          id: string
+          minutes: number
+          mode: string | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          minutes: number
+          mode?: string | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          minutes?: number
+          mode?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      notes: {
+        Row: {
+          content: string | null
+          created_at: string
+          id: string
+          key_points: Json | null
+          source_type: string | null
+          summary: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          key_points?: Json | null
+          source_type?: string | null
+          summary?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          key_points?: Json | null
+          source_type?: string | null
+          summary?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          class_year: string | null
+          created_at: string
+          daily_hours: number | null
+          education_level: string | null
+          id: string
+          language: string | null
+          last_active_date: string | null
+          name: string | null
+          onboarded: boolean
+          preferred_time: string | null
+          streak_days: number
+          updated_at: string
+          xp: number
+        }
+        Insert: {
+          class_year?: string | null
+          created_at?: string
+          daily_hours?: number | null
+          education_level?: string | null
+          id: string
+          language?: string | null
+          last_active_date?: string | null
+          name?: string | null
+          onboarded?: boolean
+          preferred_time?: string | null
+          streak_days?: number
+          updated_at?: string
+          xp?: number
+        }
+        Update: {
+          class_year?: string | null
+          created_at?: string
+          daily_hours?: number | null
+          education_level?: string | null
+          id?: string
+          language?: string | null
+          last_active_date?: string | null
+          name?: string | null
+          onboarded?: boolean
+          preferred_time?: string | null
+          streak_days?: number
+          updated_at?: string
+          xp?: number
+        }
+        Relationships: []
+      }
+      quiz_results: {
+        Row: {
+          created_at: string
+          difficulty: string | null
+          id: string
+          questions: Json | null
+          score: number
+          subject: string
+          topic: string | null
+          total: number
+          user_id: string
+          weak_topics: Json | null
+        }
+        Insert: {
+          created_at?: string
+          difficulty?: string | null
+          id?: string
+          questions?: Json | null
+          score: number
+          subject: string
+          topic?: string | null
+          total: number
+          user_id: string
+          weak_topics?: Json | null
+        }
+        Update: {
+          created_at?: string
+          difficulty?: string | null
+          id?: string
+          questions?: Json | null
+          score?: number
+          subject?: string
+          topic?: string | null
+          total?: number
+          user_id?: string
+          weak_topics?: Json | null
+        }
+        Relationships: []
+      }
+      subjects: {
+        Row: {
+          color: string | null
+          created_at: string
+          exam_date: string | null
+          id: string
+          name: string
+          user_id: string
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          exam_date?: string | null
+          id?: string
+          name: string
+          user_id: string
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          exam_date?: string | null
+          id?: string
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          completed: boolean
+          created_at: string
+          description: string | null
+          id: string
+          minutes: number | null
+          source: string | null
+          subject_id: string | null
+          task_date: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          created_at?: string
+          description?: string | null
+          id?: string
+          minutes?: number | null
+          source?: string | null
+          subject_id?: string | null
+          task_date?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          created_at?: string
+          description?: string | null
+          id?: string
+          minutes?: number | null
+          source?: string | null
+          subject_id?: string | null
+          task_date?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
