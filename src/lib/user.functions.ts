@@ -93,10 +93,12 @@ export const resetStudyData = createServerFn({ method: "POST" })
       "focus_sessions",
       "subjects",
     ] as const;
-    for (const t of tables) {
-      const { error } = await supabase.from(t).delete().eq("user_id", userId);
-      if (error) throw new Error(`${t}: ${error.message}`);
-    }
+    await Promise.all(
+      tables.map(async (t) => {
+        const { error } = await supabase.from(t).delete().eq("user_id", userId);
+        if (error) throw new Error(`${t}: ${error.message}`);
+      }),
+    );
     const { error: pErr } = await supabase
       .from("profiles")
       .update({

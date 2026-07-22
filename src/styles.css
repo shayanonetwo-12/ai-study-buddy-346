@@ -130,3 +130,10 @@
 @utility glow-primary {
   box-shadow: var(--shadow-glow);
 }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+}
+@utility no-scrollbar {
+  &::-webkit-scrollbar { display: none; }
+}
