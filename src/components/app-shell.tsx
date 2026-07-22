@@ -114,15 +114,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Mobile nav */}
-      <nav className="md:hidden fixed bottom-0 inset-x-0 bg-surface/95 backdrop-blur border-t border-border z-40 flex overflow-x-auto">
-        {NAV.slice(0, 5).map((n) => {
-          const active = path === n.to;
+      <nav className="md:hidden fixed bottom-0 inset-x-0 bg-surface/95 backdrop-blur border-t border-border z-40 flex overflow-x-auto no-scrollbar">
+        {NAV.map((n) => {
+          const active = path === n.to || path.startsWith(n.to + "/");
           return (
             <Link
               key={n.to}
               to={n.to}
               className={cn(
-                "flex-1 flex flex-col items-center py-2 text-[10px]",
+                "shrink-0 min-w-[68px] flex flex-col items-center py-2 px-2 text-[10px] transition",
                 active ? "text-primary" : "text-muted-foreground",
               )}
             >

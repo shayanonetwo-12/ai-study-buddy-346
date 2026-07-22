@@ -74,19 +74,29 @@ function Dashboard() {
   const xpToNext = 100 - ((profile?.xp ?? 0) % 100);
 
   const toggle = async (id: string, done: boolean) => {
+    // Optimistic update — instant UI feedback
+    qc.setQueryData<any[]>(["tasks", "today"], (old = []) =>
+      old.map((t) => (t.id === id ? { ...t, completed: !done } : t)),
+    );
+    if (!done) {
+      qc.setQueryData<any>(["profile"], (p: any) =>
+        p ? { ...p, xp: (p.xp ?? 0) + 10 } : p,
+      );
+      toast.success("+10 XP!");
+    }
     try {
       await toggleTask({ data: { taskId: id, completed: !done } });
-      qc.invalidateQueries({ queryKey: ["tasks"] });
       qc.invalidateQueries({ queryKey: ["profile"] });
-      if (!done) toast.success("+10 XP!");
     } catch {
       toast.error("Failed to update");
+      qc.invalidateQueries({ queryKey: ["tasks"] });
+      qc.invalidateQueries({ queryKey: ["profile"] });
     }
   };
 
   return (
     <AppShell>
-      <div className="max-w-6xl mx-auto p-6 md:p-8">
+      <div className="max-w-6xl mx-auto p-4 md:p-8">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <h1 className="text-3xl font-display font-bold">
