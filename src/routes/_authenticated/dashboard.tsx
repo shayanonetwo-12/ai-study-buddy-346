@@ -74,13 +74,23 @@ function Dashboard() {
   const xpToNext = 100 - ((profile?.xp ?? 0) % 100);
 
   const toggle = async (id: string, done: boolean) => {
+    // Optimistic update — instant UI feedback
+    qc.setQueryData<any[]>(["tasks", "today"], (old = []) =>
+      old.map((t) => (t.id === id ? { ...t, completed: !done } : t)),
+    );
+    if (!done) {
+      qc.setQueryData<any>(["profile"], (p: any) =>
+        p ? { ...p, xp: (p.xp ?? 0) + 10 } : p,
+      );
+      toast.success("+10 XP!");
+    }
     try {
       await toggleTask({ data: { taskId: id, completed: !done } });
-      qc.invalidateQueries({ queryKey: ["tasks"] });
       qc.invalidateQueries({ queryKey: ["profile"] });
-      if (!done) toast.success("+10 XP!");
     } catch {
       toast.error("Failed to update");
+      qc.invalidateQueries({ queryKey: ["tasks"] });
+      qc.invalidateQueries({ queryKey: ["profile"] });
     }
   };
 
