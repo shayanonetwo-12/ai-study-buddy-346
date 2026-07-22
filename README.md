@@ -1,337 +1,202 @@
-# 🎓 AI Study Buddy
+🎓 AI Study Buddy
+<div align="center"> <img src="docs/banner.png" alt="AI Study Buddy Banner" width="100%"/>
+🚀 AI-Powered Personal Learning Companion
 
-An AI-powered learning platform that helps students study smarter by generating personalized study plans, answering academic questions, creating quizzes, and tracking learning progress.
+Plan Smarter • Learn Faster • Stay Focused • Ace Your Exams
 
----
+<p> <a href="https://ai-study-buddy-346.vercel.app/"> <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Try%20Now-success?style=for-the-badge"> </a> <a href="https://github.com/shayanonetwo-12/ai-study-buddy-346"> <img src="https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github"> </a> <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react"> <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript"> <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite"> <img src="https://img.shields.io/badge/Supabase-Backend-3ECF8E?style=for-the-badge&logo=supabase"> <img src="https://img.shields.io/badge/TailwindCSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss"> </p>
+🌐 Live Demo
+👉 https://ai-study-buddy-346.vercel.app/
+</div>
+📚 About
+🎯 The Problem
 
-## 📚 About the Project
+Students often juggle multiple apps for:
 
-### What is AI Study Buddy?
+📅 Planning study schedules
 
-AI Study Buddy is a modern web application that acts as a personal AI learning assistant. It combines study planning, AI-powered tutoring, quizzes, flashcards, and productivity tools into one platform, making learning more organized and efficient.
+📝 Creating quizzes
 
-### ❓ The Problem It Solves
+📖 Taking notes
 
-Students often rely on multiple applications for planning, revision, note-taking, quizzes, and study assistance. Switching between these tools is time-consuming and reduces productivity.
+🤖 Asking AI questions
 
-AI Study Buddy solves this by bringing everything together in one intelligent platform where students can:
+🧠 Flashcards
 
-- Create personalized study schedules
-- Ask AI academic questions
-- Generate quizzes instantly
-- Revise using flashcards
-- Stay focused with productivity tools
-- Track their learning progress
+⏱️ Productivity timers
 
-### 👥 Target Users
+This leads to fragmented workflows and reduced productivity.
 
-- University students
-- College students
-- High school students
-- Self-learners
-- Competitive exam candidates
-- Anyone looking for an AI-powered study companion
+💡 Our Solution
 
----
+AI Study Buddy combines everything into one intelligent platform that helps students:
 
-# 🌐 Live Demo
+✅ Organize their study schedule
 
-## 🚀 Try the application here
+✅ Learn difficult concepts with AI
 
-### https://ai-study-buddy-346.vercel.app/
+✅ Generate quizzes instantly
 
----
+✅ Revise with flashcards
 
-# ✨ Features
+✅ Stay focused
 
-## 🤖 AI Study Assistant
+✅ Track progress
 
-- AI-powered academic chatbot
-- Explains difficult concepts
-- Answers study-related questions
-- Provides examples and learning guidance
-- Assists with revision
+👥 Target Audience
 
----
+🎓 University Students
 
-## 📅 AI Study Planner
+🏫 College Students
 
-Generate personalized study schedules based on:
+📚 High School Students
 
-- Subjects
-- Study hours
-- Exam dates
-- Daily goals
-- Learning priorities
+🧑‍💻 Self Learners
 
----
+📖 Competitive Exam Aspirants
 
-## 📝 AI Quiz Generator
+✨ Features
+Feature	Description
+🤖 AI Study Assistant	Ask academic questions and receive AI-powered explanations
+📅 AI Study Planner	Generate personalized study schedules
+📝 Quiz Generator	Instantly create quizzes for revision
+🧠 Flashcards	AI-generated flashcards with active recall
+⏱️ Pomodoro Timer	Stay productive using focus sessions
+📊 Analytics	Track learning progress and performance
+🔐 Authentication	Secure login using Supabase
+📱 Responsive UI	Works on desktop, tablet, and mobile
+🤖 AI Feature
+AI Study Assistant
 
-Create quizzes instantly.
+The AI assistant acts like a personal tutor.
 
-Supports:
+It can
 
-- Multiple Choice Questions
-- Different difficulty levels
-- Instant scoring
-- Performance feedback
-- Revision recommendations
+✅ Explain concepts
 
----
+✅ Answer educational questions
 
-## 🧠 Flashcards
+✅ Break difficult topics into simple language
 
-- AI-generated flashcards
-- Active Recall learning
-- Spaced Repetition
-- Quick revision sessions
+✅ Help with revision
 
----
+✅ Provide examples
 
-## ⏱ Pomodoro Focus Timer
-
-Increase productivity using:
-
-- Focus sessions
-- Short breaks
-- Long breaks
-- Study session tracking
-
----
-
-## 📊 Progress Dashboard
-
-Track:
-
-- Study hours
-- Quiz scores
-- Completed sessions
-- Productivity
-- Learning progress
-
----
-
-## 🔐 Authentication
-
-- Secure login
-- User registration
-- Session management
-- Protected routes using Supabase Authentication
-
----
-
-## 📱 Responsive Design
-
-- Desktop support
-- Tablet support
-- Mobile-friendly interface
-
----
-
-# 🤖 AI Feature
-
-## AI Study Assistant
-
-The core AI feature is an intelligent study assistant that helps students understand concepts, answer academic questions, and provide personalized learning support.
-
-### Capabilities
-
-- Explains topics in simple language
-- Answers educational questions
-- Generates study guidance
-- Helps with revision
-- Encourages conceptual understanding instead of memorization
-
-### Example System Prompt
-
-```
+🧠 Example System Prompt
 You are AI Study Buddy, an intelligent educational assistant.
 
-Your goal is to help students learn—not simply provide answers.
+Your objective is to help students learn concepts rather than simply giving answers.
 
-Guidelines:
+Instructions:
 
-• Explain concepts clearly and accurately.
-• Adapt explanations to the student's level.
-• Break complex topics into simple steps.
+• Explain concepts step-by-step.
+• Adapt explanations to the student's knowledge level.
 • Encourage critical thinking.
-• Provide examples whenever possible.
-• If solving a problem, explain every step.
-• Avoid giving misleading or fabricated information.
-• Be supportive, patient, and encouraging.
-```
+• Use examples whenever possible.
+• Be friendly, patient, and supportive.
+• Avoid misinformation.
+• If uncertain, clearly state your limitations.
+🛠️ Tech Stack
+Category	Technologies
+Frontend	React 19, TypeScript, TanStack Start, TanStack Router
+Styling	Tailwind CSS v4, Radix UI
+Backend	Supabase
+Validation	React Hook Form, Zod
+Icons	Lucide React
+Utilities	React Query, date-fns, clsx
+Deployment	Vercel
+🤖 AI Models & Services
+Service	Purpose
+OpenAI Compatible LLM (replace with exact model)	AI Study Assistant
+Supabase	Authentication & Database
+Vercel	Hosting & Deployment
+🏗️ Architecture
+                👤 User
+                   │
+                   ▼
+          ⚛️ React Frontend
+                   │
+        ┌──────────┼──────────┐
+        ▼          ▼          ▼
+ 🤖 AI Chat   📅 Planner   📝 Quiz
+        │          │          │
+        └───────Supabase──────┘
+                   │
+       🔐 Auth & Database
+📸 Screenshots
 
----
+Replace these placeholders with actual screenshots.
 
-# 🛠️ Technologies Used
+Landing Page	Dashboard
 
-## Frontend
+	
+AI Assistant	Study Planner
 
-- React 19
-- TypeScript
-- TanStack Start
-- TanStack Router
-- TanStack React Query
-- Vite
+	
+Quiz Generator	Analytics
 
-### UI
-
-- Tailwind CSS v4
-- Radix UI
-- Lucide React Icons
-
-### Backend
-
-- Supabase
-  - Authentication
-  - Database
-  - Backend Services
-
-### Form Validation
-
-- React Hook Form
-- Zod
-
-### Utilities
-
-- date-fns
-- clsx
-- class-variance-authority
-
-### Deployment
-
-- Vercel
-
----
-
-# 🧠 AI Models & Services
-
-- OpenAI-compatible Large Language Model (LLM) for conversational study assistance
-- Supabase for backend infrastructure and authentication
-- Vercel for deployment and hosting
-
-> **Note:** Replace the AI model name above with the exact model you configured (e.g., GPT-4.1, GPT-4o, Gemini 2.5 Flash, Claude 4 Sonnet, etc.).
-
----
-
-# 📸 Screenshots
-
-## Landing Page
-
-> Add screenshot here
-
-```
-screenshots/landing-page.png
-```
-
----
-
-## Dashboard
-
-> Add screenshot here
-
-```
-screenshots/dashboard.png
-```
-
----
-
-## AI Study Assistant
-
-> Add screenshot here
-
-```
-screenshots/ai-chat.png
-```
-
----
-
-## Quiz Generator
-
-> Add screenshot here
-
-```
-screenshots/quiz-generator.png
-```
-
----
-
-## Study Planner
-
-> Add screenshot here
-
-```
-screenshots/study-planner.png
-```
-
----
-
-# 🚀 Running the Project
-
-## 1. Clone the repository
-
-```bash
+	
+🚀 Getting Started
+Clone Repository
 git clone https://github.com/shayanonetwo-12/ai-study-buddy-346.git
-```
-
-## 2. Navigate into the project
-
-```bash
-cd ai-study-buddy-346
-```
-
-## 3. Install dependencies
-
-```bash
+Install Dependencies
 npm install
-```
 
 or
 
-```bash
 bun install
-```
-
-## 4. Configure environment variables
-
-Create a `.env` file in the project root.
-
-```env
+Configure Environment Variables
 VITE_SUPABASE_URL=your_supabase_url
+
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
 
-If your AI provider requires an API key, add it as well:
-
-```env
 OPENAI_API_KEY=your_api_key
-```
-
-*(Replace `OPENAI_API_KEY` with the correct variable name if you're using another provider.)*
-
-## 5. Start the development server
-
-```bash
+Run Locally
 npm run dev
-```
-
-## 6. Build for production
-
-```bash
+Build
 npm run build
-```
-
-## 7. Preview the production build
-
-```bash
+Preview
 npm run preview
-```
+🎯 Roadmap
+📄 PDF Upload
+🎤 Voice AI Tutor
+🧠 Mind Maps
+📱 Mobile App
+📆 Calendar Sync
+🏆 Study Streaks
+👥 Collaborative Study Rooms
+🌙 Dark Mode Enhancements
+🤝 Contributing
 
-Open your browser and visit:
+Contributions are welcome!
 
-```
-http://localhost:3000
-```
+git checkout -b feature/amazing-feature
 
-or the URL shown in your terminal.
+git commit -m "Add amazing feature"
+
+git push origin feature/amazing-feature
+
+Open a Pull Request 🚀
+
+📄 License
+
+Licensed under the MIT License.
+
+👨‍💻 Author
+
+Shayan Shahid
+
+🌐 Live Demo
+https://ai-study-buddy-346.vercel.app/
+
+💻 GitHub
+https://github.com/shayanonetwo-12
+
+<div align="center">
+⭐ If you like this project, please give it a star!
+
+It helps others discover the project and supports future development.
+
+Made with ❤️ using React, TypeScript, Supabase & AI
+
+</div>
