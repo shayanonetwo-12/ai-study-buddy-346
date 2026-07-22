@@ -117,6 +117,41 @@ function Settings() {
           <div className="text-xs text-muted-foreground mt-1">🔥 {profile?.streak_days ?? 0} day streak</div>
         </div>
 
+        <div className="mt-6 card-glass p-6 border-destructive/30">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            <RotateCcw className="size-4 text-destructive" /> Reset study data
+          </div>
+          <p className="text-xs text-muted-foreground mt-1">
+            Clears all subjects, tasks, notes, flashcards, quizzes, chat history, focus sessions, XP, and streak. This cannot be undone.
+          </p>
+          {!confirmReset ? (
+            <button
+              onClick={() => setConfirmReset(true)}
+              className="mt-3 w-full rounded-lg border border-destructive/40 bg-destructive/10 hover:bg-destructive/20 py-2 text-sm text-destructive inline-flex items-center justify-center gap-2"
+            >
+              <RotateCcw className="size-4" /> Reset my study data
+            </button>
+          ) : (
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <button
+                onClick={() => setConfirmReset(false)}
+                disabled={resetting}
+                className="rounded-lg border border-border bg-surface py-2 text-sm"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={doReset}
+                disabled={resetting}
+                className="rounded-lg bg-destructive hover:bg-destructive/90 py-2 text-sm font-semibold text-destructive-foreground inline-flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {resetting ? <Loader2 className="size-4 animate-spin" /> : <RotateCcw className="size-4" />}
+                Confirm reset
+              </button>
+            </div>
+          )}
+        </div>
+
         <button onClick={signOut} className="mt-6 w-full rounded-lg border border-destructive/40 bg-destructive/10 hover:bg-destructive/20 py-2 text-sm text-destructive inline-flex items-center justify-center gap-2">
           <LogOut className="size-4" /> Sign out
         </button>
