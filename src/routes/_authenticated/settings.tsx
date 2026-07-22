@@ -16,6 +16,9 @@ export const Route = createFileRoute("/_authenticated/settings")({
 function Settings() {
   const qc = useQueryClient();
   const router = useRouter();
+  const reset = useServerFn(resetStudyData);
+  const [resetting, setResetting] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
   const { data: profile } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
