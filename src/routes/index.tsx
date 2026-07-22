@@ -1,13 +1,8 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Sparkles, Brain, CalendarDays, MessageSquareText, BarChart3, Layers, Timer, Zap, ArrowRight } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/")({
   ssr: false,
-  beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (data.user) throw redirect({ to: "/dashboard" });
-  },
   component: Landing,
 });
 
@@ -33,12 +28,11 @@ function Landing() {
             <div className="font-display font-semibold text-lg">StudyAI</div>
           </div>
           <div className="flex items-center gap-3">
-            <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground">Sign in</Link>
             <Link
-              to="/auth"
+              to="/dashboard"
               className="rounded-lg gradient-bg px-4 py-2 text-sm font-medium text-primary-foreground glow-primary hover:opacity-90 transition"
             >
-              Get started
+              Open app
             </Link>
           </div>
         </div>
