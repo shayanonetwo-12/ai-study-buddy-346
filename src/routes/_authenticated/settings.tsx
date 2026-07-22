@@ -67,6 +67,21 @@ function Settings() {
     router.navigate({ to: "/", replace: true });
   };
 
+  const doReset = async () => {
+    setResetting(true);
+    try {
+      await reset({ data: {} });
+      qc.clear();
+      toast.success("Study data cleared — starting fresh!");
+      router.navigate({ to: "/dashboard", replace: true });
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Reset failed");
+    } finally {
+      setResetting(false);
+      setConfirmReset(false);
+    }
+  };
+
   return (
     <AppShell>
       <div className="max-w-2xl mx-auto p-6 md:p-8">
