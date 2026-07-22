@@ -79,3 +79,33 @@ export const completeOnboarding = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { ok: true };
   });
+
+export const resetStudyData = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { supabase, userId } = context;
+    const tables = [
+      "tasks",
+      "quiz_results",
+      "chat_messages",
+      "notes",
+      "flashcards",
+      "focus_sessions",
+      "subjects",
+    ] as const;
+    for (const t of tables) {
+      const { error } = await supabase.from(t).delete().eq("user_id", userId);
+      if (error) throw new Error(`${t}: ${error.message}`);
+    }
+    const { error: pErr } = await supabase
+      .from("profiles")
+      .update({
+        xp: 0,
+        streak_days: 0,
+        last_active_date: null,
+        onboarded: false,
+      })
+      .eq("id", userId);
+    if (pErr) throw new Error(pErr.message);
+    return { ok: true };
+  });

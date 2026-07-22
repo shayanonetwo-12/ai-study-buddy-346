@@ -1,9 +1,11 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { AppShell } from "@/components/app-shell";
-import { Settings as SettingsIcon, LogOut } from "lucide-react";
+import { resetStudyData } from "@/lib/user.functions";
+import { Settings as SettingsIcon, LogOut, RotateCcw, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/settings")({
@@ -14,6 +16,9 @@ export const Route = createFileRoute("/_authenticated/settings")({
 function Settings() {
   const qc = useQueryClient();
   const router = useRouter();
+  const reset = useServerFn(resetStudyData);
+  const [resetting, setResetting] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
   const { data: profile } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
@@ -62,6 +67,21 @@ function Settings() {
     router.navigate({ to: "/", replace: true });
   };
 
+  const doReset = async () => {
+    setResetting(true);
+    try {
+      await reset();
+      qc.clear();
+      toast.success("Study data cleared — starting fresh!");
+      router.navigate({ to: "/dashboard", replace: true });
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Reset failed");
+    } finally {
+      setResetting(false);
+      setConfirmReset(false);
+    }
+  };
+
   return (
     <AppShell>
       <div className="max-w-2xl mx-auto p-6 md:p-8">
@@ -95,6 +115,41 @@ function Settings() {
           <div className="text-sm text-muted-foreground">Total XP</div>
           <div className="text-3xl font-display font-bold gradient-text">{profile?.xp ?? 0}</div>
           <div className="text-xs text-muted-foreground mt-1">🔥 {profile?.streak_days ?? 0} day streak</div>
+        </div>
+
+        <div className="mt-6 card-glass p-6 border-destructive/30">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            <RotateCcw className="size-4 text-destructive" /> Reset study data
+          </div>
+          <p className="text-xs text-muted-foreground mt-1">
+            Clears all subjects, tasks, notes, flashcards, quizzes, chat history, focus sessions, XP, and streak. This cannot be undone.
+          </p>
+          {!confirmReset ? (
+            <button
+              onClick={() => setConfirmReset(true)}
+              className="mt-3 w-full rounded-lg border border-destructive/40 bg-destructive/10 hover:bg-destructive/20 py-2 text-sm text-destructive inline-flex items-center justify-center gap-2"
+            >
+              <RotateCcw className="size-4" /> Reset my study data
+            </button>
+          ) : (
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <button
+                onClick={() => setConfirmReset(false)}
+                disabled={resetting}
+                className="rounded-lg border border-border bg-surface py-2 text-sm"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={doReset}
+                disabled={resetting}
+                className="rounded-lg bg-destructive hover:bg-destructive/90 py-2 text-sm font-semibold text-destructive-foreground inline-flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {resetting ? <Loader2 className="size-4 animate-spin" /> : <RotateCcw className="size-4" />}
+                Confirm reset
+              </button>
+            </div>
+          )}
         </div>
 
         <button onClick={signOut} className="mt-6 w-full rounded-lg border border-destructive/40 bg-destructive/10 hover:bg-destructive/20 py-2 text-sm text-destructive inline-flex items-center justify-center gap-2">
