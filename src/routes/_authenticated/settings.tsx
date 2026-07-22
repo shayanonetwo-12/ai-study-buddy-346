@@ -70,7 +70,7 @@ function Settings() {
   const doReset = async () => {
     setResetting(true);
     try {
-      await reset({ data: {} });
+      await reset();
       qc.clear();
       toast.success("Study data cleared — starting fresh!");
       router.navigate({ to: "/dashboard", replace: true });
