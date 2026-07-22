@@ -54,7 +54,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     await qc.cancelQueries();
     qc.clear();
     await supabase.auth.signOut();
-    router.navigate({ to: "/auth", replace: true });
+    router.navigate({ to: "/", replace: true });
   };
 
   const level = Math.floor((profile?.xp ?? 0) / 100) + 1;

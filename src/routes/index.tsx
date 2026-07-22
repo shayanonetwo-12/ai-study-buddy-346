@@ -53,7 +53,7 @@ function Landing() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
-              to="/auth"
+              to="/dashboard"
               className="rounded-xl gradient-bg px-6 py-3 text-sm font-semibold text-primary-foreground glow-primary hover:opacity-90 transition inline-flex items-center gap-2"
             >
               Start studying free <ArrowRight className="size-4" />
