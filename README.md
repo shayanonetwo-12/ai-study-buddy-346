@@ -163,7 +163,7 @@ This prompt shapes every response from the assistant — prioritizing *teaching*
 
  Landing Page 
  
-|---|---|<img width="1065" height="2616" alt="ai-study-buddy-346-iipzv3uff-ss09 vercel app_" src="https://github.com/user-attachments/assets/50c14e1b-3c17-4f75-afd5-cc3cbd853599" />
+<img width="1065" height="2616" alt="ai-study-buddy-346-iipzv3uff-ss09 vercel app_" src="https://github.com/user-attachments/assets/50c14e1b-3c17-4f75-afd5-cc3cbd853599" />
 
 Dashboard
 
