@@ -159,12 +159,13 @@ This prompt shapes every response from the assistant — prioritizing *teaching*
 
 ## 📸 Screenshots
 
-> Screenshots showing the app in action. *(Replace the placeholder image links below with your own captured screenshots — e.g. upload them to a `docs/screenshots/` folder in the repo and update the paths.)*
+> Screenshots showing the app in action.
 
-| Landing Page | Dashboard |
+| Landing Page | 
 |---|---|<img width="1065" height="2616" alt="ai-study-buddy-346-iipzv3uff-ss09 vercel app_" src="https://github.com/user-attachments/assets/50c14e1b-3c17-4f75-afd5-cc3cbd853599" />
+| ![Dashboard] |
+<img width="1065" height="1173" alt="ai-study-buddy-346 vercel app_dashboard" src="https://github.com/user-attachments/assets/dc820268-fa0a-46a3-be06-bc1e3949f784" />
 
-| ![Landing Page](docs/screenshots/landing-page.png) | ![Dashboard](docs/screenshots/dashboard.png) |
 
 | AI Study Assistant | Study Planner |
 |---|---|
