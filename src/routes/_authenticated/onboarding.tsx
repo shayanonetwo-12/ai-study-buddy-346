@@ -31,13 +31,33 @@ function Onboarding() {
   const prev = () => setStep((s) => Math.max(0, s - 1));
 
   const finish = async () => {
+    if (loading) return;
+    if (!form.name.trim()) {
+      toast.error("Please enter your name");
+      setStep(0);
+      return;
+    }
     setLoading(true);
     try {
-      await submit({ data: form });
+      try {
+        await submit({ data: form });
+      } catch (serverErr) {
+        // Fallback: write directly with the browser client so a transient
+        // server-fn/bearer issue never blocks the user from finishing setup.
+        console.warn("completeOnboarding server-fn failed, falling back:", serverErr);
+        const { data: u, error: uErr } = await supabase.auth.getUser();
+        if (uErr || !u.user) throw serverErr;
+        const { error } = await supabase
+          .from("profiles")
+          .update({ ...form, onboarded: true })
+          .eq("id", u.user.id);
+        if (error) throw error;
+      }
       toast.success("You're all set!");
       router.navigate({ to: "/dashboard" });
-    } catch {
-      toast.error("Failed to save");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Something went wrong";
+      toast.error(`Couldn't save: ${msg}`);
     } finally {
       setLoading(false);
     }
