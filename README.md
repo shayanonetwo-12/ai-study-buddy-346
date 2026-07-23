@@ -162,23 +162,32 @@ This prompt shapes every response from the assistant — prioritizing *teaching*
 > Screenshots showing the app in action.
 
  Landing Page 
+ 
 |---|---|<img width="1065" height="2616" alt="ai-study-buddy-346-iipzv3uff-ss09 vercel app_" src="https://github.com/user-attachments/assets/50c14e1b-3c17-4f75-afd5-cc3cbd853599" />
+
 Dashboard
+
 <img width="1065" height="1173" alt="ai-study-buddy-346 vercel app_dashboard" src="https://github.com/user-attachments/assets/dc820268-fa0a-46a3-be06-bc1e3949f784" />
 
 | AI Study Assistant | Study Planner |
 
 AI Assistant
+
 <img width="1065" height="1437" alt="ai-study-buddy-346 vercel app_dashboard (2)" src="https://github.com/user-attachments/assets/08feeadb-3e6d-4d0a-b9df-0a6d33a47130" />
+
 Study Planner
+
 <img width="1065" height="950" alt="ai-study-buddy-346 vercel app_dashboard (1)" src="https://github.com/user-attachments/assets/fb1f347a-8ea9-4ddb-bdee-d183eb69afc4" />
  
 
 | Quiz Generator | Analytics |
-|---|---|
+
 Quiz Generator
+
 <img width="1088" height="878" alt="ai-study-buddy-346 vercel app_dashboard (3)" src="https://github.com/user-attachments/assets/ea1e8f1b-1f18-47b7-8053-c12fee42f4fe" />
+
  Analytics
+ 
 <img width="1065" height="992" alt="ai-study-buddy-346 vercel app_dashboard (4)" src="https://github.com/user-attachments/assets/88b1e22f-c2ad-4897-b703-a972147a554d" />
 
 ---
