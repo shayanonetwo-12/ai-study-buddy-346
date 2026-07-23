@@ -173,11 +173,11 @@ Dashboard
 
 AI Assistant
 
-<img width="1065" height="1437" alt="ai-study-buddy-346 vercel app_dashboard (2)" src="https://github.com/user-attachments/assets/08feeadb-3e6d-4d0a-b9df-0a6d33a47130" />
+<img width="1065" height="950" alt="ai-study-buddy-346 vercel app_dashboard (1)" src="https://github.com/user-attachments/assets/fb1f347a-8ea9-4ddb-bdee-d183eb69afc4" />
 
 Study Planner
 
-<img width="1065" height="950" alt="ai-study-buddy-346 vercel app_dashboard (1)" src="https://github.com/user-attachments/assets/fb1f347a-8ea9-4ddb-bdee-d183eb69afc4" />
+<img width="1065" height="1437" alt="ai-study-buddy-346 vercel app_dashboard (2)" src="https://github.com/user-attachments/assets/08feeadb-3e6d-4d0a-b9df-0a6d33a47130" />
  
 
 | Quiz Generator | Analytics |
